@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import {Card} from 'antd'
 import PostForm from '../components/PostForm'
+import {base_URL} from '../services/apiUrl'
 
 
 export class ArticleDetailView extends Component {
@@ -15,7 +16,7 @@ export class ArticleDetailView extends Component {
 
     componentDidMount(){
         const articleID = this.props.match.params.articleID;
-        axios.get(`http://127.0.0.1:8000/api/${articleID}`)
+        axios.get(`${base_URL}/api/${articleID}`)
         .then(res => {
             this.setState({Artdetail:res.data})
         })
