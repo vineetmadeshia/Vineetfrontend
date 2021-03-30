@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import {base_URL} from '../services/apiUrl'
 
 class PostForm extends Component {
     constructor(props) {
@@ -21,7 +22,7 @@ class PostForm extends Component {
         switch(requestType){
 
         case 'post':
-        axios.post('http://127.0.0.1:8000/api/',this.state)
+        axios.post(`${base_URL}/api/`,this.state)
         .then(res => {
             console.log(res)
         })
@@ -29,7 +30,7 @@ class PostForm extends Component {
             console.log(err)
         })
         case 'put':
-            axios.put(`http://127.0.0.1:8000/api/${articleID}/`,this.state)
+            axios.put(`${base_URL}/api//${articleID}/`,this.state)
         .then(res => {
             console.log(res)
         })
