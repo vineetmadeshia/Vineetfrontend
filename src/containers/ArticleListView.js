@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import Article from '../components/Article'
 import axios from 'axios'
 import PostForm from '../components/PostForm'
+import {base_URL} from '../services/apiUrl'
 
 
 class ArticleListView extends Component {
@@ -15,7 +16,7 @@ class ArticleListView extends Component {
 
     componentDidMount(){
         
-        axios.get('http://127.0.0.1:8000/api/')
+        axios.get(`${base_URL}/api/`)
         .then(res => {
             this.setState({articles: res.data})
                 
